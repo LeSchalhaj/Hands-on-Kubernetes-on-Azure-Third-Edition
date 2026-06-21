@@ -49,13 +49,16 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v4
+      - name: Set up kubelogin
+       uses: azure/use-kubelogin@v1
 
       - name: Azure Kubernetes set context
-        uses: Azure/aks-set-context@v1
+        uses: Azure/aks-set-context@v4
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          resource-group: handsonaks
-          cluster-name: handsonaks
+        resource-group: handsonaks
+        cluster-name: handsonaks
+        admin: 'false'
+        use-kubelogin: 'true'
 
       - name: Helm upgrade
         run: |

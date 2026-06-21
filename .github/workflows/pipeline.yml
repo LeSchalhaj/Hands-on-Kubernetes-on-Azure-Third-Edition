@@ -68,11 +68,10 @@ jobs:
           cluster-name: handsonaks
           admin: 'false'
           use-kubelogin: 'true'
-
       - name: Test Kubernetes access
         run: |
-          kubectl get nodes
-          kubectl get pods -A
+          kubectl get namespace default
+          kubectl get pods -n default
 
       - name: Helm upgrade
         run: |

@@ -68,6 +68,7 @@ jobs:
           cluster-name: handsonaks
           admin: 'false'
           use-kubelogin: 'true'
+     
       - name: Test Kubernetes access
         run: |
           kubectl get namespace default
